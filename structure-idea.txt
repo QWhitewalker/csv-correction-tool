@@ -1,0 +1,3 @@
+main code reads csv file
+triger validator method(parameter: value-array; return: empty array (if everything is ok), array with number of rows (if there are errors)) (reads regex from json)
+triger correction method(parameter: value-array, array from validator; return: corrected array with info if correction was successful?)
