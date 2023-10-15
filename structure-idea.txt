@@ -1,3 +1,9 @@
-main code reads csv file
-triger validator method(parameter: value-array; return: empty array (if everything is ok), array with number of rows (if there are errors)) (reads regex from json)
-triger correction method(parameter: value-array, array from validator; return: corrected array with info if correction was successful?)
+main code reads csv file (path in json)
+triger charset validator method(returns true if all characters are not compatible with the given charset(in json), otherwise returns false) (use encode() method)
+write arrays that the characterset validator returned false into seperate file with comment (method for writing into error file(takes array, errormessage as parameters))
+triger validator method(parameter: value-array; return: true (if everything is ok), array with number of rows (if there are errors)) (reads regex from json)
+write array with normal output method if everything is ok
+triger correction method(parameter: value-array, array from validator; return: corrected array with info if correction was successful)
+write final array into file with either error-write method or normal output method depending on outcome of correction method
+
+add validate only option in json that disables correction method
