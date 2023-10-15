@@ -1,8 +1,14 @@
 import csv
 import re
+import json
+
 pattern = re.compile("[mwd]")
 
-with open('export_Kunden_DE_A.csv') as csv_file:
+# load config.json into python dictionary "config"
+configFile = open('config.json')
+config = json.load(configFile)
+
+with open(config["csv-file"]) as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=';')
     line_count = 0
     for row in csv_reader:
@@ -19,4 +25,4 @@ with open('export_Kunden_DE_A.csv') as csv_file:
             #if line_count == 5:
                 #break
             #print(f'Processed {line_count} lines.')
-    print(f'Processed {line_count} lines.')
+    print(f"Processed {line_count} lines.")
