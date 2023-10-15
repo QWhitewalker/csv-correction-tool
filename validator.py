@@ -2,11 +2,11 @@ import csv
 import re
 import json
 
-pattern = re.compile("[mwd]")
-
 # load config.json into python dictionary "config"
 configFile = open('config.json')
 config = json.load(configFile)
+
+pattern = re.compile(config["columns"]["1"])
 
 with open(config["csv-file"]) as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=';')

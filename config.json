@@ -1,3 +1,6 @@
 {
-    "csv-file": "export_Kunden_DE_A.csv"
+    "csv-file": "export_Kunden_DE_A.csv",
+    "columns": {
+        "1":"[mwd]"
+    }
 }
