@@ -15,7 +15,7 @@ def regex_validator():
         print("nomatch")
 
 with open(config["csv-file"]) as csv_file:
-    csv_reader = csv.reader(csv_file, delimiter=';')
+    csv_reader = csv.reader(csv_file, delimiter=config["delimiter"])
     line_count = 0
     for row in csv_reader:
         if line_count == 0:
