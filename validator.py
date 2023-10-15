@@ -26,3 +26,18 @@ with open(config["csv-file"]) as csv_file:
                 #break
             #print(f'Processed {line_count} lines.')
     print(f"Processed {line_count} lines.")
+
+def charset_validator():
+    pass
+
+def regex_validator():
+    pass
+
+def regex_corrector():
+    pass
+
+def error_writer():
+    pass
+
+def output_writer():
+    pass
