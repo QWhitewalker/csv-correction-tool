@@ -1,6 +1,7 @@
 {
     "csv-file": "export_Kunden_DE_A.csv",
     "delimiter": ";",
+    "encoding": "utf-8",
     "columns": {
         "1":"[mwd]"
     }
