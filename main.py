@@ -1,5 +1,4 @@
 import csv
-import re
 import json
 import validator
 import writer
@@ -13,28 +12,32 @@ config = json.load(configFile)
 if os.path.isfile(config['output-file']):
     os.remove(config['output-file'])
 
-
-pattern = re.compile(config['columns']['1'])
-
 # open input file and call all other needed functions to process the file
 with open(config['input-file'],encoding=config['encoding'],errors='replace') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=config['input-delimiter'])
     line_count = 0
+    # loop through all the rows inside the file
     for row in csv_reader:
+        # if its the first row
         if line_count == 0:
+            # write row into output file
             writer.write_row(row,config['output-file'],config['encoding'],config['output-delimiter'])
             line_count += 1
+        # if its not the first row
         else:
-            validator_output = validator.regex_validator(row,pattern)
+            # validate row
+            validator_output = validator.regex_validator(row,config['columns'])
+            # if the row is valid
             if validator_output[0]:
+                # write row into output file
                 writer.write_row(row,config['output-file'],config['encoding'],config['output-delimiter'])
+            # if the row contains errors
             else:
-                writer.write_row(['error'],config['output-file'],config['encoding'],config['output-delimiter'])
+                # write indeces of columns with errors into output file
+                writer.write_row(validator_output[1],config['output-file'],config['encoding'],config['output-delimiter'])
             line_count += 1
+            # only process that many rows (from the top)
             if line_count == 20:
                 break
-print(f'Processed {line_count} lines.')
-#print(config['columns'].keys())
-
-def regex_corrector():
-    pass
+    # print count of processed rows into terminal
+    print(f'Processed {line_count} lines.')
