@@ -10,21 +10,21 @@ configFile = open('config.json')
 config = json.load(configFile)
 
 # delete output file if it already exists
-if os.path.isfile('output.csv'):
-    os.remove('output.csv')
+if os.path.isfile(config['output-file']):
+    os.remove(config['output-file'])
 
 
 pattern = re.compile(config['columns']['1'])
 
-with open(config['csv-file'], encoding=config['encoding'], errors='replace') as csv_file:
+with open(config['input-file'], encoding=config['encoding'], errors='replace') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=config['delimiter'])
     line_count = 0
     for row in csv_reader:
         if line_count == 0:
-            writer.write_row(row,config['encoding'])
+            writer.write_row(row,config['output-file'],config['encoding'])
             line_count += 1
         else:
-            writer.write_row(row,config['encoding'])
+            writer.write_row(row,config['output-file'],config['encoding'])
             #validator.regex_validator(row, pattern)
             line_count += 1
             if line_count == 5:

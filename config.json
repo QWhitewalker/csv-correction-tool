@@ -1,5 +1,6 @@
 {
-    "csv-file": "export_Kunden_DE_A.csv",
+    "input-file": "export_Kunden_DE_A.csv",
+    "output-file": "output.csv",
     "delimiter": ";",
     "encoding": "utf-8",
     "columns": {
