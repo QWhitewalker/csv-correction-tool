@@ -1,8 +1,6 @@
-def validate_charset():
-    pass
-
-def regex_validator(row, pattern):
-    if pattern.match(row[1]):
-        print("match")
+def regex_validator(p_row,p_pattern):
+    if p_pattern.match(p_row[1]):
+        return_value = (True,[''])
     else:
-        print("nomatch")
+        return_value = (False,['1'])
+    return return_value
