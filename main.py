@@ -16,6 +16,7 @@ if os.path.isfile(config['output-file']):
 
 pattern = re.compile(config['columns']['1'])
 
+# open input file and call all other needed functions to process the file
 with open(config['input-file'], encoding=config['encoding'], errors='replace') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=config['delimiter'])
     line_count = 0
