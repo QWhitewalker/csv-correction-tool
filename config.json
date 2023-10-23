@@ -1,7 +1,8 @@
 {
     "input-file": "export_Kunden_DE_A.csv",
     "output-file": "output.csv",
-    "delimiter": ";",
+    "input-delimiter": ";",
+    "output-delimiter": ";",
     "encoding": "utf-8",
     "columns": {
         "1":"[mwd]"
