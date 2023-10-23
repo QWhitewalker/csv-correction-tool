@@ -36,8 +36,9 @@ with open(config['input-file'],encoding=config['encoding'],errors='replace') as 
                 # write indeces of columns with errors into output file
                 writer.write_row(validator_output[1],config['output-file'],config['encoding'],config['output-delimiter'])
             line_count += 1
-            # only process that many rows (from the top)
-            if line_count == 20:
-                break
+            # only process that many rows (from the top) if number-of-rows isn't null
+            if not config['number-of-rows'] is None:
+                if line_count == config['number-of-rows'] + 1:
+                    break
     # print count of processed rows into terminal
-    print(f'Processed {line_count} lines.')
+    print(f'Processed {line_count-1} lines.')

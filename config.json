@@ -4,6 +4,7 @@
     "input-delimiter": ";",
     "output-delimiter": ";",
     "encoding": "utf-8",
+    "number-of-rows": null,
     "columns": {
         "1":"[mwd]",
         "5":"\\b[0-9]{2,2}\\.[0-9]{2,2}\\.[0-9]{4,4}\\b"
