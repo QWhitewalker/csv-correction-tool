@@ -3,10 +3,16 @@ import re
 import json
 import validator
 import writer
+import os
 
 # load config.json into python dictionary 'config'
 configFile = open('config.json')
 config = json.load(configFile)
+
+# delete output file if it already exists
+if os.path.isfile('output.csv'):
+    os.remove('output.csv')
+
 
 pattern = re.compile(config['columns']['1'])
 
