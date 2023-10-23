@@ -15,16 +15,14 @@ with open(config['csv-file'], encoding=config['encoding'], errors='replace') as 
     line_count = 0
     for row in csv_reader:
         if line_count == 0:
-            #writer.write('[Test-Baum]',config['encoding'])
-            print(row[1])
+            writer.write_row(row,config['encoding'])
             line_count += 1
         else:
-            print(row[1])
-            validator.regex_validator(row, pattern)
+            writer.write_row(row,config['encoding'])
+            #validator.regex_validator(row, pattern)
             line_count += 1
-            #if line_count == 5:
-                #break
-            #print(f'Processed {line_count} lines.')
+            if line_count == 5:
+                break
     print(f'Processed {line_count} lines.')
 #print(config['columns'].keys())
 
