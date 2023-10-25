@@ -5,10 +5,10 @@
     "input-delimiter": ";",
     "output-delimiter": ";",
     "encoding": "utf-8",
-    "number-of-rows": null,
+    "number-of-rows": null, 
     "columns": {
-        "3":"\\b[A-Z][a-z]+\\b",
-        "4":"\\b[A-Z][a-z]+\\b",
+        "3":"\\b[A-Z][a-z]+(\\s|$)",
+        "4":"\\b[A-Z][a-z]+(\\s|$)",
         "12":"\\b[a-z|\\.]+@[a-z]+\\.[a-z]+\\b"
     }
 }
