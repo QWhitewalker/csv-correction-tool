@@ -24,8 +24,8 @@ with open(config['input-file'],encoding=config['encoding'],errors='replace') as 
     for row in csv_reader:
         # if its the first row
         if line_count == 0:
-            # write row into output file
-            writer.write_row(row,config['output-file'],config['encoding'],config['output-delimiter'])
+            # write row into output file (only write columns that are listed in config file)
+            writer.write_validated_row(row,config['output-file'],config['encoding'],config['output-delimiter'],config['columns'])
             line_count += 1
         # if its not the first row
         else:
@@ -33,8 +33,8 @@ with open(config['input-file'],encoding=config['encoding'],errors='replace') as 
             validator_output = validator.regex_validator(row,config['columns'])
             # if the row is valid
             if validator_output[0]:
-                # write row into output file
-                writer.write_row(row,config['output-file'],config['encoding'],config['output-delimiter'])
+                # write row into output file (only write columns that are listed in config file)
+                writer.write_validated_row(row,config['output-file'],config['encoding'],config['output-delimiter'],config['columns'])
             # if the row contains errors
             else:
                 # write indeces of columns with errors into output file
