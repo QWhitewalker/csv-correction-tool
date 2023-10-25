@@ -12,6 +12,10 @@ config = json.load(configFile)
 if os.path.isfile(config['output-file']):
     os.remove(config['output-file'])
 
+# delete error file if it already exists
+if os.path.isfile(config['error-file']):
+    os.remove(config['error-file'])
+
 # open input file and call all other needed functions to process the file
 with open(config['input-file'],encoding=config['encoding'],errors='replace') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=config['input-delimiter'])
@@ -34,7 +38,7 @@ with open(config['input-file'],encoding=config['encoding'],errors='replace') as 
             # if the row contains errors
             else:
                 # write indeces of columns with errors into output file
-                writer.write_row(validator_output[1],config['output-file'],config['encoding'],config['output-delimiter'])
+                writer.write_row(validator_output[1],config['error-file'],config['encoding'],config['output-delimiter'])
             line_count += 1
             # only process that many rows (from the top) if number-of-rows isn't null
             if not config['number-of-rows'] is None:
