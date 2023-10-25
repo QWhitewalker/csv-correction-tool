@@ -37,8 +37,8 @@ with open(config['input-file'],encoding=config['encoding'],errors='replace') as 
                 writer.write_validated_row(row,config['output-file'],config['encoding'],config['output-delimiter'],config['columns'])
             # if the row contains errors
             else:
-                # write indeces of columns with errors into output file
-                writer.write_row(validator_output[1],config['error-file'],config['encoding'],config['output-delimiter'])
+                # write row into error file (only write columns that are listed in config file), also add header row that tells if field is valid
+                writer.write_error_row(row,config['error-file'],config['encoding'],config['output-delimiter'],config['columns'],validator_output[1])
             line_count += 1
             # only process that many rows (from the top) if number-of-rows isn't null
             if not config['number-of-rows'] is None:
