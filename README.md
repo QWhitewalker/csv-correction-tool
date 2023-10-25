@@ -1,5 +1,9 @@
-# csv-correction-tool (work in progress, still in dev state)
+# csv-correction-tool
 
-This is supposed to become a python tool to validate and correct csv files based on regex statements.
-The csv file present in the repository is there for testing purposes. (this is not real persons data)
-If you don't work with devcontainers, you can ignore/delete the .devcontainer repository.
+This is a python tool to validate CSV files based on regex statements.
+The CSV file present in the repository is there for testing purposes. (this is not real persons data)
+If you don't work with devcontainers, you can ignore/delete the **.devcontainer** repository.
+To use the script, place your own CSV file in the root directory and change the **config.json** accordingly.
+Once the **config.json** is configured to your liking, you can just execute **main.py** with the command `python main.py`.
+
+This tool was meant to also be able to correct CSV-files (hence the name), but this functionality is not implemented yet.
