@@ -1,4 +1,4 @@
-# csv-correction-tool
+# csv-validation-tool
 
 This is a python tool to validate CSV files based on regex statements.
 The CSV file present in the repository is there for testing purposes. (this is not real persons data)
