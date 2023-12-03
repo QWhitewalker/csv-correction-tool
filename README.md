@@ -5,5 +5,3 @@ The CSV file present in the repository is there for testing purposes. (this is n
 If you don't work with devcontainers, you can ignore/delete the **.devcontainer** repository.
 To use the script, place your own CSV file in the root directory and change the **config.json** accordingly.
 Once the **config.json** is configured to your liking, you can just execute **main.py** with the command `python main.py`.
-
-This tool was meant to also be able to correct CSV-files (hence the name), but this functionality is not implemented yet.
